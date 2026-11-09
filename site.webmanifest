@@ -1,0 +1,14 @@
+{
+  "name": "PGA Transformaciones",
+  "short_name": "PGA",
+  "description": "Automatización de procesos, chatbots y agentes de IA para empresas.",
+  "lang": "es",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#041E3C",
+  "theme_color": "#041E3C",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
