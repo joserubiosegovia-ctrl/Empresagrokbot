@@ -70,6 +70,10 @@
     if (open) { const first = $('a', nav); if (first) first.focus({ preventScroll: true }); }
   });
   nav.addEventListener('click', (e) => { if (e.target.closest('a')) setNav(false); });
+  const navBackdrop = $('[data-nav-backdrop]');
+  if (navBackdrop) navBackdrop.addEventListener('click', () => setNav(false));
+  const brandLink = $('.brand');
+  if (brandLink) brandLink.addEventListener('click', () => setNav(false));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) {
       setNav(false);
@@ -413,16 +417,26 @@
       });
     }
 
-    if (hasIO) {
+    const begin = () => {
+      if (!chat.started) start('clinica', { autoplay: !reduceMotion, hint: reduceMotion });
+    };
+    const watch = () => {
+      if (!hasIO) { begin(); return; }
       const watcher = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting && !chat.started) {
-          start('clinica', { autoplay: !reduceMotion, hint: reduceMotion });
+        if (entry.isIntersecting) {
+          begin();
           watcher.disconnect();
         }
       }, { threshold: 0.35 });
       watcher.observe(chatLog);
+    };
+    if (chatLog.closest('[data-story]')) {
+      // En la portada animada, js/story.js avisa cuando la escena del chat aparece
+      // (o, si la portada se queda en versión estática, se arranca al verse).
+      document.addEventListener('pga:chat-visible', begin);
+      document.addEventListener('pga:story-static', watch, { once: true });
     } else {
-      start('clinica', { hint: true });
+      watch();
     }
   }
 

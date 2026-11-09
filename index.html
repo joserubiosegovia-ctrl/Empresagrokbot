@@ -7,6 +7,7 @@
   <meta name="description" content="Chatbots de WhatsApp, OCR de facturas, Verifactu, dashboards y mantenimiento IT para pymes de Alicante y Elche. También en remoto en toda España. Diagnóstico gratuito.">
   <link rel="canonical" href="https://www.pgatransformaciones.com/">
   <meta name="theme-color" content="#041E3C">
+  <meta name="color-scheme" content="only light">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.pgatransformaciones.com/">
@@ -171,6 +172,10 @@
   <!-- ============ CABECERA ============ -->
   <header class="site-header" data-header>
     <div class="container header__inner">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-nav-toggle>
+        <span class="visually-hidden">Abrir menú</span>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
       <a class="brand" href="#inicio" aria-label="PGA Transformaciones, volver al inicio">
         <svg class="brand__logo" viewBox="0 0 884 327" aria-hidden="true" focusable="false"><use href="#logo-lockup"/></svg>
       </a>
@@ -192,12 +197,9 @@
           Diagnóstico gratis
           <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-nav-toggle>
-          <span class="visually-hidden">Abrir menú</span>
-          <span class="nav-toggle__bars" aria-hidden="true"></span>
-        </button>
       </div>
     </div>
+    <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -309,31 +311,39 @@
             <div class="scene__text">
               <p class="eyebrow eyebrow--light">Chatbots con IA</p>
               <h2 class="scene__big">Un empleado que atiende a tus clientes <span class="text-grad">las 24 horas</span>.</h2>
-              <p class="scene__small">En tu web, WhatsApp o Instagram: responde dudas, reserva citas y gestiona pedidos. Si hace falta una persona, se lo pasa a tu equipo.</p>
+              <p class="scene__small">En tu web, WhatsApp o Instagram: responde dudas, reserva citas y gestiona pedidos. Pruébalo tú mismo: elige una respuesta en el chat.</p>
             </div>
-            <div class="phone story__phone">
-              <div class="phone__screen">
-                <div class="chat__head">
-                  <span class="chat__avatar" aria-hidden="true">
-                    <svg viewBox="0 0 194 232" fill="url(#pga-grad)" focusable="false"><use href="#chevron"/></svg>
-                  </span>
-                  <span class="chat__who">
-                    <strong>Asistente · Clínica</strong>
-                    <span class="chat__status">En línea</span>
-                  </span>
-                </div>
-                <div class="chat__log" role="group" aria-label="Ejemplo de conversación con un chatbot">
-                  <p class="msg msg--user" data-at="0.624">Hola, ¿tenéis cita para mañana?</p>
-                  <p class="msg msg--bot msg--typing" data-at="0.631" data-until="0.638" aria-hidden="true"><i></i><i></i><i></i></p>
-                  <p class="msg msg--bot" data-at="0.638">¡Claro! Tengo hueco a las 10:30 o a las 17:00. ¿Cuál prefieres?</p>
-                  <p class="msg msg--user" data-at="0.648">A las 17:00, perfecto.</p>
-                  <p class="msg msg--bot msg--typing" data-at="0.654" data-until="0.661" aria-hidden="true"><i></i><i></i><i></i></p>
-                  <p class="msg msg--bot" data-at="0.661">Reservado ✓ Te envío la confirmación por WhatsApp y te recordaré la cita.</p>
-                  <p class="msg msg--bot" data-at="0.672">¿Te ayudo con algo más?</p>
-                </div>
-                <div class="chat__input" aria-hidden="true">
-                  <span>Escribe un mensaje…</span>
-                  <span class="chat__send"><svg class="icon"><use href="#i-send"/></svg></span>
+            <div class="story__phone-wrap">
+              <div class="scenarios scenarios--sm" role="group" aria-label="Elige un ejemplo de chatbot" data-scenarios>
+                <button type="button" class="scenario is-active" aria-pressed="true" data-scenario="clinica">
+                  <svg class="icon" aria-hidden="true"><use href="#i-stethoscope"/></svg>Clínica
+                </button>
+                <button type="button" class="scenario" aria-pressed="false" data-scenario="tienda">
+                  <svg class="icon" aria-hidden="true"><use href="#i-shopping-bag"/></svg>Tienda
+                </button>
+                <button type="button" class="scenario" aria-pressed="false" data-scenario="inmobiliaria">
+                  <svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Inmobiliaria
+                </button>
+              </div>
+              <div class="phone story__phone">
+                <div class="phone__screen">
+                  <div class="chat__head">
+                    <span class="chat__avatar" aria-hidden="true">
+                      <svg viewBox="0 0 194 232" fill="url(#pga-grad)" focusable="false"><use href="#chevron"/></svg>
+                    </span>
+                    <span class="chat__who">
+                      <strong data-chat-name>Asistente · Clínica</strong>
+                      <span class="chat__status">En línea</span>
+                    </span>
+                  </div>
+                  <div class="chat__log" role="log" aria-live="polite" aria-label="Conversación de ejemplo" data-chat-log>
+                    <p class="msg msg--bot">¡Hola! Soy el asistente virtual de la clínica. ¿En qué te puedo ayudar?</p>
+                  </div>
+                  <div class="chat__replies" data-chat-replies></div>
+                  <div class="chat__input" aria-hidden="true">
+                    <span>Toca una respuesta…</span>
+                    <span class="chat__send"><svg class="icon"><use href="#i-send"/></svg></span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -65,9 +65,36 @@ const TL = {
 /* ---------------------------------------------------------------------- */
 /* Controlador: progreso del scroll, textos y navegación                  */
 /* ---------------------------------------------------------------------- */
+// Puntos de reposo de la historia: en pantallas táctiles cada deslizamiento se detiene en el siguiente.
+const RESTS = [0, 0.094, 0.15, 0.245, 0.35, 0.448, 0.4747, 0.5013, 0.528, 0.5547, 0.5813, 0.665, 0.768, 0.793, 0.815, 0.84, 0.91, 0.985];
+
 function setup(root) {
   root.classList.add('story--3d');
   const stage = root.querySelector('.story__stage');
+  const touch = window.matchMedia('(pointer: coarse)').matches;
+  // En móvil el dedo desplaza mucho de golpe: transiciones algo más lentas
+  const RATE = touch ? 3.2 : 6.5;
+  let snaps = [];
+  const placeSnaps = () => {
+    const total = root.offsetHeight - stage.clientHeight;
+    const pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    snaps.forEach((a, i) => { a.style.top = `${Math.round(RESTS[i] * total + (i ? pad : 0))}px`; });
+  };
+  if (touch) {
+    // Los puntos se colocan antes de añadirlos y de activar el ajuste: si no, el navegador
+    // podría «engancharse» a uno de ellos mientras aún no tiene su posición final.
+    snaps = RESTS.map(() => {
+      const a = document.createElement('span');
+      a.className = 'story__snap';
+      a.setAttribute('aria-hidden', 'true');
+      return a;
+    });
+    placeSnaps();
+    root.append(...snaps);
+    document.documentElement.classList.add('story-snap');
+    window.addEventListener('resize', placeSnaps, { passive: true });
+  }
+  let chatShown = false;
   const steps = Array.from(root.querySelectorAll('[data-step]')).map((el) => ({
     el,
     from: Number(el.dataset.from),
@@ -114,7 +141,11 @@ function setup(root) {
       if (off !== s.off) {
         s.off = off;
         s.el.classList.toggle('is-off', off);
-        s.links.forEach((l) => (off ? l.setAttribute('tabindex', '-1') : l.removeAttribute('tabindex')));
+        s.el.querySelectorAll('a, button').forEach((l) => (off ? l.setAttribute('tabindex', '-1') : l.removeAttribute('tabindex')));
+      }
+      if (!chatShown && s.el.id === 'chatbots' && o > 0.6) {
+        chatShown = true;
+        document.dispatchEvent(new CustomEvent('pga:chat-visible'));
       }
     });
     msgs.forEach((m) => {
@@ -137,7 +168,7 @@ function setup(root) {
     const dt = Math.min((now - last) / 1000, 0.05);
     last = now;
     const target = measure();
-    p += (target - p) * (1 - Math.exp(-dt * 6.5));
+    p += (target - p) * (1 - Math.exp(-dt * RATE));
     if (Math.abs(target - p) < 0.0002) p = target;
     overlay(p);
     if (world) world.render(p, now / 1000);
@@ -148,8 +179,21 @@ function setup(root) {
   const scrollToStep = (s, smoothScroll) => {
     const top = root.getBoundingClientRect().top + window.scrollY;
     const total = root.offsetHeight - stage.clientHeight;
-    const target = s.from + (s.to - s.from) * 0.4;
-    window.scrollTo({ top: top + total * target, behavior: smoothScroll ? 'smooth' : 'auto' });
+    // Cada escena se abre en su primer punto de reposo
+    const rest = RESTS.find((r) => r >= s.from && r <= s.to);
+    const target = rest !== undefined ? rest : s.from + (s.to - s.from) * 0.4;
+    const y = top + total * target;
+    if (smoothScroll) {
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      return;
+    }
+    // Salto directo (al abrir un enlace con #): sin animación y sin recorrer toda la historia
+    const html = document.documentElement;
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    html.style.scrollBehavior = prev;
+    p = measure();
   };
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
@@ -163,7 +207,15 @@ function setup(root) {
   }, true);
   if (location.hash) {
     const s = steps.find((x) => x.el.id === location.hash.slice(1));
-    if (s) setTimeout(() => scrollToStep(s, false), 80);
+    if (s) {
+      // El navegador también salta al ancla al terminar de cargar: se repite después,
+      // salvo que el visitante ya haya empezado a moverse.
+      let moved = false;
+      ['wheel', 'touchstart', 'keydown'].forEach((t) => window.addEventListener(t, () => { moved = true; }, { once: true, passive: true }));
+      const go = () => { if (!moved) scrollToStep(s, false); };
+      [80, 450, 1000, 1800].forEach((t) => setTimeout(go, t));
+      if (document.readyState !== 'complete') window.addEventListener('load', () => setTimeout(go, 60), { once: true });
+    }
   }
 
   p = measure();
@@ -190,6 +242,9 @@ function setup(root) {
       console.warn('Animación 3D desactivada:', err);
       disabled = true;
       root.classList.remove('story--3d');
+      document.documentElement.classList.remove('story-snap');
+      snaps.forEach((a) => a.remove());
+      document.dispatchEvent(new CustomEvent('pga:story-static'));
       steps.forEach((s) => {
         s.el.style.opacity = '';
         s.el.style.transform = '';
@@ -444,6 +499,28 @@ function servicePanel(svc, icon) {
   return c;
 }
 
+function backgroundCanvas() {
+  // Mismo fondo que la versión CSS: azul marino con brillos cian y azul
+  const [c, ctx] = canvas2d(256, 512);
+  const g = ctx.createLinearGradient(0, 0, 0, 512);
+  g.addColorStop(0, '#04234a');
+  g.addColorStop(0.45, '#031630');
+  g.addColorStop(1, '#020c1b');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 256, 512);
+  const r1 = ctx.createRadialGradient(230, 0, 0, 230, 0, 300);
+  r1.addColorStop(0, 'rgba(5, 219, 255, 0.16)');
+  r1.addColorStop(1, 'rgba(5, 219, 255, 0)');
+  ctx.fillStyle = r1;
+  ctx.fillRect(0, 0, 256, 512);
+  const r2 = ctx.createRadialGradient(0, 512, 0, 0, 512, 320);
+  r2.addColorStop(0, 'rgba(0, 70, 226, 0.32)');
+  r2.addColorStop(1, 'rgba(0, 70, 226, 0)');
+  ctx.fillStyle = r2;
+  ctx.fillRect(0, 0, 256, 512);
+  return c;
+}
+
 function roadTexture() {
   const [c, ctx] = canvas2d(512, 128);
   const g = ctx.createLinearGradient(0, 0, 0, 128);
@@ -511,14 +588,20 @@ async function createWorld(THREE, stage) {
     document.fonts.load('600 23px Inter'),
   ]).catch(() => {});
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
-  renderer.setClearColor(0x000000, 0);
+  renderer.setClearColor(0x031630, 1);
+  // Si el móvil libera la tarjeta gráfica, se muestra el fondo CSS hasta que vuelva
+  canvas.addEventListener('webglcontextlost', () => stage.classList.remove('is-ready'));
+  canvas.addEventListener('webglcontextrestored', () => stage.classList.add('is-ready'));
 
   const scene = new THREE.Scene();
+  const bgTex = new THREE.CanvasTexture(backgroundCanvas());
+  bgTex.colorSpace = THREE.SRGBColorSpace;
+  scene.background = bgTex;
   scene.fog = new THREE.Fog(0x031630, 15, 38);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
 
@@ -835,9 +918,11 @@ async function createWorld(THREE, stage) {
     [1.0, [50.0, 20.0, 25.0], [54.5, -1.5, -2], [52.5, 31.0, 26.0], [54.0, -1.5, -2]],
   ];
 
+  let headerH = 70; // alto de la cabecera fija (se actualiza en layout)
   const layout = () => {
     const w = stage.clientWidth;
     const h = stage.clientHeight;
+    headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 70;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
@@ -964,6 +1049,8 @@ async function createWorld(THREE, stage) {
     );
   };
   const place = (el, x, y, opacity) => {
+    // Las etiquetas que quedarían debajo de la cabecera se ocultan
+    opacity *= smooth(headerH + 4, headerH + 40, y);
     if (!el._w || el._sw !== stage.clientWidth) {
       el._w = el.offsetWidth;
       el._sw = stage.clientWidth;
@@ -1193,3 +1280,4 @@ async function createWorld(THREE, stage) {
 
 /* Arranque (al final para que todas las constantes ya estén definidas) */
 if (section && !reduceMotion && hasWebGL()) setup(section);
+else if (section) document.dispatchEvent(new CustomEvent('pga:story-static'));
