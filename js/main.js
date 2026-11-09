@@ -16,8 +16,8 @@
 
     // Número de WhatsApp con prefijo de país, sin espacios ni «+». Ejemplo: '34600123456'
     // Si se deja vacío, no se muestra el botón flotante de WhatsApp.
-    whatsapp: '',
-    whatsappMessage: 'Hola, me gustaría saber qué podemos automatizar en mi empresa.',
+    whatsapp: '34711299140',
+    whatsappMessage: 'Hola, me gustaría información sobre automatización para mi empresa.',
   };
 
   /* ------------------------------------------------------------------------ */

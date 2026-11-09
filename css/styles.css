@@ -2339,6 +2339,11 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
   opacity: 0;
 }
 .story--3d .svc h3 { font-size: 1.15rem; color: var(--cyan-300); }
+.svc h3 a { text-decoration: none; }
+.svc h3 a:hover { text-decoration: underline; }
+.service-more { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; }
+.hero--solo .hero__inner { display: block; max-width: 46rem; }
+.hero--solo .hero__title { font-size: clamp(2.1rem, 1rem + 2.6vw, 3.5rem); }
 .story--3d .svc p { font-size: 1.05rem; color: #d3dff0; }
 .story--3d .scene__link { margin-top: 0; }
 
