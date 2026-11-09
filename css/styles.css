@@ -2530,7 +2530,8 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
   .story--3d .feat-list li { padding: 7px 12px; font-size: 0.8rem; }
 }
 
-/* En pantallas táctiles la historia avanza escena a escena (js/story.js crea los puntos de parada) */
+/* Móvil y tablet: cada deslizamiento avanza una escena (js/story.js crea los puntos de parada).
+   En ordenador, la rueda, el trackpad y el teclado los gestiona js/story.js. */
 html.story-snap { scroll-snap-type: y mandatory; }
 /* El contacto es más alto que la pantalla: dentro de él se puede desplazar libremente */
 html.story-snap #contacto { scroll-snap-align: start; }

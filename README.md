@@ -20,7 +20,7 @@ La web tiene dos páginas principales:
 6. Carretera con los 4 pasos del método, recorrida por el chevrón.
 7. Vista aérea con los motivos para elegir PGA y llamada al diagnóstico gratuito.
 
-Después de la historia vienen el formulario de contacto y el pie. Un enlace «Saltar al contacto» permite ir directo al formulario. En móvil y tablet, cada deslizamiento avanza una escena (como en TikTok), y el chat de la escena 5 se puede usar tocando las respuestas.
+Después de la historia vienen el formulario de contacto y el pie. Un enlace «Saltar al contacto» permite ir directo al formulario. Cada gesto avanza una escena (como en TikTok): un deslizamiento en el móvil, un golpe de rueda o de trackpad en el ordenador, o las flechas del teclado. El chat de la escena 5 se puede usar tocando las respuestas.
 
 **`servicios.html` · todo el detalle.** Servicios, interruptor «Antes / Con PGA», demo interactiva de chatbot (clínica, tienda online e inmobiliaria), casos de uso por departamento, calculadora de ahorro, método, preguntas frecuentes y formulario.
 

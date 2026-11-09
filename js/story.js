@@ -72,8 +72,10 @@ function setup(root) {
   root.classList.add('story--3d');
   const stage = root.querySelector('.story__stage');
   const touch = window.matchMedia('(pointer: coarse)').matches;
-  // En móvil el dedo desplaza mucho de golpe: transiciones algo más lentas
-  const RATE = touch ? 3.2 : 6.5;
+  // La escena sigue al scroll con un muelle amortiguado: cada transición arranca
+  // y frena con suavidad (≈1,1 s en móvil y ≈1,4 s en ordenador).
+  const OMEGA = touch ? 4.6 : 3.4;
+  let vel = 0;
   let snaps = [];
   const placeSnaps = () => {
     const total = root.offsetHeight - stage.clientHeight;
@@ -81,8 +83,10 @@ function setup(root) {
     snaps.forEach((a, i) => { a.style.top = `${Math.round(RESTS[i] * total + (i ? pad : 0))}px`; });
   };
   if (touch) {
-    // Los puntos se colocan antes de añadirlos y de activar el ajuste: si no, el navegador
-    // podría «engancharse» a uno de ellos mientras aún no tiene su posición final.
+    // Móvil y tablet: el ajuste nativo del navegador (scroll-snap) hace que cada
+    // deslizamiento avance una escena. Los puntos se colocan antes de añadirlos y de
+    // activar el ajuste: si no, el navegador podría «engancharse» a uno de ellos
+    // mientras aún no tiene su posición final.
     snaps = RESTS.map(() => {
       const a = document.createElement('span');
       a.className = 'story__snap';
@@ -93,6 +97,93 @@ function setup(root) {
     root.append(...snaps);
     document.documentElement.classList.add('story-snap');
     window.addEventListener('resize', placeSnaps, { passive: true });
+  }
+  let disabled = false;
+  if (!touch) {
+    // Ordenador: cada golpe de rueda, deslizamiento de trackpad o pulsación de tecla
+    // lleva a la escena siguiente o anterior, con una animación suave. La inercia del
+    // trackpad se ignora hasta que empieza un gesto nuevo.
+    let lockUntil = 0;
+    let lastWheel = 0;
+    let lastDelta = 0;
+    let acc = 0;
+    let used = false;
+    let aim = null;
+    let aimAt = 0;
+    const zone = () => {
+      const top = root.getBoundingClientRect().top + window.scrollY;
+      const total = root.offsetHeight - stage.clientHeight;
+      return { ys: RESTS.map((r) => top + r * total), end: top + total };
+    };
+    // Escena de destino en la dirección indicada, o null para dejar el scroll normal
+    // (antes de la historia no hay nada; después, el contacto y el pie se recorren libremente).
+    const destination = (dir) => {
+      const { ys, end } = zone();
+      const now = performance.now();
+      let y = window.scrollY;
+      if (aim !== null && now - aimAt < 1300) y = dir > 0 ? Math.max(y, aim) : Math.min(y, aim);
+      if (dir > 0) {
+        if (y >= end - 2) return null;
+        const t = ys.find((v) => v > y + 2);
+        return t === undefined ? null : t;
+      }
+      if (window.scrollY > end + 2) return null;
+      for (let i = ys.length - 1; i >= 0; i -= 1) if (ys[i] < y - 2) return ys[i];
+      return null;
+    };
+    const go = (y) => {
+      aim = y;
+      aimAt = performance.now();
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+    window.addEventListener('wheel', (e) => {
+      if (disabled || e.ctrlKey || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      if (document.body.classList.contains('nav-open')) return;
+      const dy = e.deltaY * (e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? window.innerHeight : 1);
+      const dir = Math.sign(dy);
+      const target = destination(dir);
+      if (target === null) return;
+      e.preventDefault();
+      const now = performance.now();
+      const gap = now - lastWheel;
+      const mag = Math.abs(dy);
+      const prev = Math.abs(lastDelta);
+      // ¿Gesto nuevo? La inercia del trackpad siempre va a menos; un gesto nuevo empieza
+      // tras una pausa sin perder fuerza (los golpes de rueda son iguales entre sí)
+      // o acelera de golpe. Los golpes de rueda (valores grandes) admiten pausas más cortas.
+      const fresh = Math.sign(lastDelta) !== dir
+        || gap > 900
+        || (mag > prev * 1.6 && mag > 12)
+        || (mag >= prev * 0.95 && gap > (mag >= 50 ? 120 : 300));
+      lastWheel = now;
+      lastDelta = dy;
+      if (fresh) {
+        acc = 0;
+        used = false;
+      }
+      acc += dy;
+      if (used || now < lockUntil || Math.abs(acc) < 24) return;
+      used = true;
+      lockUntil = now + 700;
+      go(target);
+    }, { passive: false });
+    window.addEventListener('keydown', (e) => {
+      if (disabled || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+      const el = document.activeElement;
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName))) return;
+      if (document.body.classList.contains('nav-open')) return;
+      let dir = 0;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) dir = 1;
+      else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) dir = -1;
+      if (!dir) return;
+      const target = destination(dir);
+      if (target === null) return;
+      e.preventDefault();
+      const now = performance.now();
+      if (now < lockUntil) return;
+      lockUntil = now + 450;
+      go(target);
+    });
   }
   let chatShown = false;
   const steps = Array.from(root.querySelectorAll('[data-step]')).map((el) => ({
@@ -115,7 +206,6 @@ function setup(root) {
   let p = 0;
   let last = performance.now();
   let running = false;
-  let disabled = false;
   let world = null;
 
   const measure = () => {
@@ -168,8 +258,16 @@ function setup(root) {
     const dt = Math.min((now - last) / 1000, 0.05);
     last = now;
     const target = measure();
-    p += (target - p) * (1 - Math.exp(-dt * RATE));
-    if (Math.abs(target - p) < 0.0002) p = target;
+    // Muelle con amortiguación crítica (solución exacta para el paso dt)
+    const x0 = p - target;
+    const c = vel + OMEGA * x0;
+    const e = Math.exp(-OMEGA * dt);
+    p = target + (x0 + c * dt) * e;
+    vel = (vel - OMEGA * c * dt) * e;
+    if (Math.abs(p - target) < 0.00015 && Math.abs(vel) < 0.001) {
+      p = target;
+      vel = 0;
+    }
     overlay(p);
     if (world) world.render(p, now / 1000);
     requestAnimationFrame(frame);
@@ -194,6 +292,7 @@ function setup(root) {
     window.scrollTo(0, y);
     html.style.scrollBehavior = prev;
     p = measure();
+    vel = 0;
   };
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
