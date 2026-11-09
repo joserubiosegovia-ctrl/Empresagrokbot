@@ -138,12 +138,12 @@
 
       <nav class="nav" id="menu" aria-label="Principal" data-nav>
         <ul class="nav__list">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#demo">Chatbots</a></li>
-          <li><a href="#casos">Casos de uso</a></li>
-          <li><a href="#calculadora">Calculadora</a></li>
-          <li><a href="#metodo">Cómo trabajamos</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#que-hacemos">Qué hacemos</a></li>
+          <li><a href="#chatbots">Chatbots</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="servicios.html">Servicios en detalle</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
         <a class="btn btn--primary btn--block nav__cta" href="#contacto">Solicita tu diagnóstico gratuito</a>
       </nav>
@@ -163,831 +163,183 @@
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__grid"></div>
-        <div class="hero__glow hero__glow--a"></div>
-        <div class="hero__glow hero__glow--b"></div>
-        <svg class="hero__chevron" viewBox="0 0 194 232" focusable="false">
-          <use href="#chevron" class="hero__chevron-fill" fill="url(#pga-grad)"/>
-          <use href="#chevron" class="hero__chevron-line" fill="none" stroke="url(#pga-grad)"/>
-        </svg>
-      </div>
-
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="pill" data-reveal>
-            <span class="pill__dot" aria-hidden="true"></span>
-            Consultora de automatización e inteligencia artificial
-          </p>
-          <h1 class="hero__title" data-reveal>
-            Si se repite,<br>
-            <span class="text-grad">se automatiza.</span>
-          </h1>
-          <p class="hero__lead" data-reveal>
-            En PGA Transformaciones convertimos el trabajo manual de tu empresa en procesos inteligentes:
-            <strong>chatbots</strong> que atienden 24/7, <strong>automatizaciones</strong> que conectan tus herramientas
-            y <strong>agentes de IA</strong> que trabajan mientras tu equipo se centra en crecer.
-          </p>
-          <div class="hero__ctas" data-reveal>
-            <a class="btn btn--primary btn--lg" href="#contacto">
-              Solicita tu diagnóstico gratuito
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-            </a>
-            <a class="btn btn--ghost btn--lg" href="#calculadora">
-              <svg class="icon" aria-hidden="true"><use href="#i-calculator"/></svg>
-              Calcula tu ahorro
-            </a>
-          </div>
-          <ul class="hero__trust" data-reveal>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg>Sin coste ni compromiso</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg>Soluciones a medida</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg>Datos seguros y RGPD</li>
-          </ul>
-        </div>
-
-        <div class="hero__visual" data-reveal>
-          <div class="panel">
-            <div class="panel__bar">
-              <span class="panel__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="panel__title">Flujo automatizado</span>
-              <span class="panel__tag">Ejemplo</span>
-            </div>
-
-            <p class="visually-hidden">
-              Ejemplo de flujo: los emails, mensajes de WhatsApp, formularios web y facturas pasan por el motor de IA
-              y llegan solos al CRM, al ERP, al cliente y a los informes.
-            </p>
-
-            <div class="flow" aria-hidden="true">
-              <svg class="flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
-                <g class="flow__base">
-                  <path d="M34 12.5C44 12.5 41 50 50 50"/>
-                  <path d="M34 37.5C44 37.5 42 50 50 50"/>
-                  <path d="M34 62.5C44 62.5 42 50 50 50"/>
-                  <path d="M34 87.5C44 87.5 41 50 50 50"/>
-                  <path d="M50 50C59 50 56 12.5 66 12.5"/>
-                  <path d="M50 50C58 50 56 37.5 66 37.5"/>
-                  <path d="M50 50C58 50 56 62.5 66 62.5"/>
-                  <path d="M50 50C59 50 56 87.5 66 87.5"/>
-                </g>
-                <g class="flow__pulses">
-                  <path pathLength="100" style="--d:0s" d="M34 12.5C44 12.5 41 50 50 50"/>
-                  <path pathLength="100" style="--d:-1.4s" d="M34 37.5C44 37.5 42 50 50 50"/>
-                  <path pathLength="100" style="--d:-2.6s" d="M34 62.5C44 62.5 42 50 50 50"/>
-                  <path pathLength="100" style="--d:-0.7s" d="M34 87.5C44 87.5 41 50 50 50"/>
-                  <path class="is-out" pathLength="100" style="--d:-1.9s" d="M50 50C59 50 56 12.5 66 12.5"/>
-                  <path class="is-out" pathLength="100" style="--d:-0.5s" d="M50 50C58 50 56 37.5 66 37.5"/>
-                  <path class="is-out" pathLength="100" style="--d:-3.1s" d="M50 50C58 50 56 62.5 66 62.5"/>
-                  <path class="is-out" pathLength="100" style="--d:-2.3s" d="M50 50C59 50 56 87.5 66 87.5"/>
-                </g>
-              </svg>
-
-              <ul class="flow__col flow__col--in">
-                <li class="node"><span class="node__icon"><svg class="icon"><use href="#i-mail"/></svg></span>Emails</li>
-                <li class="node"><span class="node__icon"><svg class="icon"><use href="#i-message-circle"/></svg></span>WhatsApp</li>
-                <li class="node"><span class="node__icon"><svg class="icon"><use href="#i-globe"/></svg></span>Formularios</li>
-                <li class="node"><span class="node__icon"><svg class="icon"><use href="#i-file-text"/></svg></span>Facturas</li>
-              </ul>
-
-              <div class="flow__core">
-                <span class="core">
-                  <span class="core__ring"></span>
-                  <span class="core__ring core__ring--late"></span>
-                  <svg class="core__chev" viewBox="0 0 194 232" fill="url(#pga-grad)" focusable="false"><use href="#chevron"/></svg>
-                </span>
-                <span class="core__label">Motor IA</span>
-              </div>
-
-              <ul class="flow__col flow__col--out">
-                <li class="node node--out"><span class="node__icon"><svg class="icon"><use href="#i-users"/></svg></span>CRM</li>
-                <li class="node node--out"><span class="node__icon"><svg class="icon"><use href="#i-database"/></svg></span>ERP</li>
-                <li class="node node--out"><span class="node__icon"><svg class="icon"><use href="#i-send"/></svg></span>Respuestas</li>
-                <li class="node node--out"><span class="node__icon"><svg class="icon"><use href="#i-chart-column"/></svg></span>Informes</li>
-              </ul>
-            </div>
-
-            <ol class="ticker" aria-hidden="true" data-ticker>
-              <li class="ticker__item"><svg class="icon"><use href="#i-check"/></svg><span>Factura de proveedor registrada en el ERP</span><time>ahora</time></li>
-              <li class="ticker__item"><svg class="icon"><use href="#i-check"/></svg><span>Consulta por WhatsApp resuelta en 8 s</span><time>hace 9 s</time></li>
-              <li class="ticker__item"><svg class="icon"><use href="#i-check"/></svg><span>Nuevo lead cualificado y asignado</span><time>hace 21 s</time></li>
-            </ol>
-
-            <div class="panel__kpis" aria-hidden="true">
-              <div class="kpi">
-                <span class="kpi__value" data-kpi-tasks>1.284</span>
-                <span class="kpi__label">tareas automatizadas hoy</span>
-              </div>
-              <div class="kpi">
-                <span class="kpi__value"><span data-kpi-hours>126</span>&nbsp;h</span>
-                <span class="kpi__label">ahorradas este mes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Integraciones -->
-      <div class="logos">
-        <p class="logos__title">Conectamos la IA con las herramientas que ya usas</p>
-        <div class="marquee">
-          <ul class="marquee__track">
-            <li>WhatsApp Business</li><li>Gmail</li><li>Outlook</li><li>Microsoft 365</li><li>Google Workspace</li>
-            <li>Excel</li><li>HubSpot</li><li>Salesforce</li><li>Odoo</li><li>Holded</li><li>SAP</li><li>Shopify</li>
-            <li>WooCommerce</li><li>PrestaShop</li><li>Slack</li><li>Teams</li><li>Notion</li><li>Stripe</li>
-            <li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Make</li><li>n8n</li><li>Zapier</li>
-          </ul>
-          <ul class="marquee__track" aria-hidden="true">
-            <li>WhatsApp Business</li><li>Gmail</li><li>Outlook</li><li>Microsoft 365</li><li>Google Workspace</li>
-            <li>Excel</li><li>HubSpot</li><li>Salesforce</li><li>Odoo</li><li>Holded</li><li>SAP</li><li>Shopify</li>
-            <li>WooCommerce</li><li>PrestaShop</li><li>Slack</li><li>Teams</li><li>Notion</li><li>Stripe</li>
-            <li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Make</li><li>n8n</li><li>Zapier</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ASÍ FUNCIONA (animación 3D que avanza con el scroll: js/story.js) ============ -->
-    <section class="story" id="como-funciona" data-story aria-labelledby="story-title">
+    <!-- ============ HISTORIA (toda la portada avanza con el scroll: js/story.js) ============
+         Cada bloque .scene se muestra entre los valores data-from y data-to
+         (0 = principio de la historia, 1 = final). Sin WebGL, sin JavaScript o con
+         «reducir movimiento», los bloques se ven uno debajo de otro como una web normal. -->
+    <section class="story" id="inicio" data-story aria-label="Cómo transforma PGA Transformaciones tu empresa">
       <div class="story__stage">
         <canvas class="story__canvas" aria-hidden="true"></canvas>
         <div class="story__shade" aria-hidden="true"></div>
-        <div class="story__nodes" aria-hidden="true">
+
+        <div class="story__labels" aria-hidden="true">
           <p class="story__node" data-node><strong>CRM</strong><span data-count>0 leads</span></p>
           <p class="story__node" data-node><strong>ERP</strong><span data-count>0 facturas</span></p>
           <p class="story__node" data-node><strong>Clientes</strong><span data-count>0 respuestas</span></p>
           <p class="story__node" data-node><strong>Informes</strong><span data-count>0 informes</span></p>
+          <div class="story__mile" data-mile><span>01</span><strong>Diagnóstico gratuito</strong><small>Detectamos qué automatizar primero.</small></div>
+          <div class="story__mile" data-mile><span>02</span><strong>Propuesta a medida</strong><small>Plan claro, plazos y retorno.</small></div>
+          <div class="story__mile" data-mile><span>03</span><strong>Desarrollo e integración</strong><small>Conectado a tus herramientas.</small></div>
+          <div class="story__mile" data-mile><span>04</span><strong>Puesta en marcha</strong><small>Formación, medición y mejora.</small></div>
         </div>
+
         <div class="container story__captions">
-          <div class="story__caption" data-step data-from="0" data-to="0.2" aria-hidden="true">
+          <div class="scene scene--hero" data-step data-from="0" data-to="0.048">
+            <p class="pill">
+              <span class="pill__dot" aria-hidden="true"></span>
+              Consultora de automatización e inteligencia artificial
+            </p>
+            <h1 class="hero__title">
+              Si se repite,<br>
+              <span class="text-grad">se automatiza.</span>
+            </h1>
+            <p class="scene__lead">
+              En PGA Transformaciones convertimos el trabajo manual de tu empresa en procesos inteligentes:
+              <strong>chatbots</strong>, <strong>automatizaciones</strong> y <strong>agentes de IA</strong> que trabajan por ti.
+            </p>
+            <div class="scene__ctas">
+              <a class="btn btn--primary btn--lg" href="#contacto">
+                Solicita tu diagnóstico gratuito
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <a class="btn btn--ghost btn--lg scene__more" href="#como-funciona">
+                <svg class="icon" aria-hidden="true"><use href="#i-mouse"/></svg>
+                Descubre cómo
+              </a>
+            </div>
+          </div>
+
+          <div class="scene" id="como-funciona" data-step data-from="0.07" data-to="0.118">
             <p class="eyebrow eyebrow--light">Así funciona</p>
-            <p class="story__big">Cada día, tu empresa recibe un aluvión de tareas.</p>
-            <p class="story__small">Emails, pedidos, facturas, mensajes de WhatsApp, hojas de cálculo… y alguien tiene que ocuparse de todo.</p>
+            <h2 class="scene__big">Cada día, tu empresa recibe un aluvión de tareas.</h2>
+            <p class="scene__small">Emails, pedidos, facturas, mensajes de WhatsApp, hojas de cálculo… y alguien tiene que ocuparse de todo.</p>
           </div>
-          <div class="story__caption" data-step data-from="0.25" data-to="0.49" aria-hidden="true">
-            <p class="story__big">Nuestra IA las lee, las entiende y <span class="text-grad">las ordena</span>.</p>
-            <p class="story__small">Clasifica cada tarea, extrae los datos importantes y decide qué hay que hacer con ella.</p>
+
+          <div class="scene scene--stat" data-step data-from="0.125" data-to="0.172">
+            <p class="scene__num">60–70&#8239;%</p>
+            <p class="scene__big scene__big--sm">del tiempo de trabajo se va en tareas que la IA y la tecnología actual ya pueden automatizar.</p>
+            <p class="scene__source">Fuente: McKinsey Global Institute, <cite>The economic potential of generative AI</cite> (2023).</p>
           </div>
-          <div class="story__caption" data-step data-from="0.54" data-to="0.78" aria-hidden="true">
-            <p class="story__big">Y las lleva solas a donde tienen que ir.</p>
-            <p class="story__small">Al CRM, al ERP, a tus clientes y a tus informes. Sin copiar y pegar.</p>
+
+          <div class="scene" data-step data-from="0.2" data-to="0.285">
+            <h2 class="scene__big">Nuestra IA las lee, las entiende y <span class="text-grad">las ordena</span>.</h2>
+            <p class="scene__small">Clasifica cada tarea, extrae los datos importantes y decide qué hay que hacer con ella.</p>
           </div>
-          <div class="story__caption story__caption--last" data-step data-from="0.83" data-to="1" aria-hidden="true">
-            <p class="story__big">Tu empresa, <span class="text-grad">en piloto automático</span>.</p>
-            <p class="story__small">Mientras tanto, tu equipo se dedica a lo que de verdad importa.</p>
+
+          <div class="scene" data-step data-from="0.3" data-to="0.385">
+            <h2 class="scene__big">Y las lleva solas a donde tienen que ir.</h2>
+            <p class="scene__small">Al CRM, al ERP, a tus clientes y a tus informes. Sin copiar y pegar.</p>
           </div>
-          <a class="btn btn--primary btn--lg story__cta" href="#contacto">
-            Quiero automatizar mi empresa
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </div>
-        <div class="story__bar" aria-hidden="true"><span></span></div>
-        <p class="story__hint" aria-hidden="true"><svg class="icon"><use href="#i-mouse"/></svg>Sigue bajando</p>
-      </div>
 
-      <div class="container story__static">
-        <p class="eyebrow eyebrow--light">Así funciona</p>
-        <h2 id="story-title">Del caos al <span class="text-grad">piloto automático</span></h2>
-        <ol class="story__list">
-          <li>
-            <span class="story__num">01</span>
-            <h3>Un aluvión de tareas</h3>
-            <p>Emails, pedidos, facturas, mensajes de WhatsApp y hojas de cálculo llegan cada día a tu empresa.</p>
-          </li>
-          <li>
-            <span class="story__num">02</span>
-            <h3>La IA las ordena</h3>
-            <p>Lee cada tarea, extrae los datos importantes y decide qué hay que hacer con ella.</p>
-          </li>
-          <li>
-            <span class="story__num">03</span>
-            <h3>Cada una a su sitio</h3>
-            <p>Al CRM, al ERP, a tus clientes y a tus informes, sin copiar y pegar.</p>
-          </li>
-          <li>
-            <span class="story__num">04</span>
-            <h3>Piloto automático</h3>
-            <p>Mientras tanto, tu equipo se dedica a lo que de verdad importa.</p>
-          </li>
-        </ol>
-        <a class="btn btn--primary btn--lg story__static-cta" href="#contacto">
-          Quiero automatizar mi empresa
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-        </a>
-      </div>
-    </section>
-
-    <!-- ============ ANTES / DESPUÉS ============ -->
-    <section class="section section--soft" id="problemas" aria-labelledby="problemas-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="eyebrow">El problema</p>
-          <h2 id="problemas-title">¿Te suena alguna de estas situaciones?</h2>
-          <p class="section__lead">
-            Son las tareas que frenan a la mayoría de empresas.
-            <span class="js-only">Activa el interruptor y mira cómo quedan cuando las automatizamos.</span>
-          </p>
-        </header>
-
-        <div class="switch js-only" role="group" aria-label="Ver las situaciones" data-reveal data-switch>
-          <button class="switch__btn is-active" type="button" aria-pressed="true" data-mode="before">Antes</button>
-          <button class="switch__btn" type="button" aria-pressed="false" data-mode="after">
-            Con PGA
-            <svg class="switch__chev" viewBox="0 0 194 232" aria-hidden="true" focusable="false"><use href="#chevron"/></svg>
-          </button>
-          <span class="switch__thumb" aria-hidden="true"></span>
-        </div>
-
-        <ul class="flip-grid" data-flip-grid>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg></span>
-              <h3>Copiar y pegar datos entre programas</h3>
-              <p>Tu equipo pasa horas moviendo información del email al Excel y del Excel al ERP.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-workflow"/></svg></span>
-              <h3>Tus programas se hablan entre sí</h3>
-              <p>Los datos pasan del email al CRM y del CRM al ERP sin que nadie tenga que tocarlos.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-hourglass"/></svg></span>
-              <h3>Clientes esperando una respuesta</h3>
-              <p>Las consultas llegan por web, email y WhatsApp… y se contestan cuando se puede. Fuera de horario, nadie responde.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg></span>
-              <h3>Respuesta inmediata, 24/7</h3>
-              <p>Un asistente de IA atiende al instante y pasa a tu equipo solo lo que necesita a una persona.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-file-text"/></svg></span>
-              <h3>Facturas y pedidos tecleados a mano</h3>
-              <p>Pedidos, albaranes y facturas que alguien tiene que leer, teclear y revisar uno a uno.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-scan-text"/></svg></span>
-              <h3>Documentos que se procesan solos</h3>
-              <p>La IA lee cada documento, extrae los datos, los valida y los registra en tu sistema.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
-              <h3>Informes que se llevan media mañana</h3>
-              <p>Cada semana alguien junta datos de varias fuentes para montar, otra vez, el mismo informe.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart-line"/></svg></span>
-              <h3>Informes que llegan solos</h3>
-              <p>Cada lunes, el informe está en tu bandeja con los datos al día y las conclusiones clave.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-snowflake"/></svg></span>
-              <h3>Contactos que se enfrían</h3>
-              <p>Los clientes potenciales esperan días a que alguien los llame o les envíe una propuesta.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
-              <h3>Cada lead, atendido en minutos</h3>
-              <p>La IA cualifica cada contacto, le responde al momento y agenda la reunión con tu comercial.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-          <li class="flip" data-reveal>
-            <div class="flip__face flip__face--before">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-triangle-alert"/></svg></span>
-              <h3>Errores que cuestan dinero</h3>
-              <p>Un dato mal tecleado acaba en un envío equivocado, una factura incorrecta o un cliente molesto.</p>
-            </div>
-            <div class="flip__face flip__face--after" aria-hidden="true">
-              <span class="flip__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
-              <h3>Menos errores, más control</h3>
-              <p>Validaciones automáticas detectan incoherencias antes de que lleguen a tus clientes.</p>
-              <span class="flip__tag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatizado</span>
-            </div>
-          </li>
-        </ul>
-
-        <div class="stat" data-reveal>
-          <p class="stat__num">60–70&#8239;%</p>
-          <div class="stat__body">
-            <p class="stat__text">del tiempo de trabajo se dedica a tareas que la IA generativa y otras tecnologías actuales ya pueden automatizar.</p>
-            <p class="stat__cite">Fuente: McKinsey Global Institute, <cite>The economic potential of generative AI</cite> (2023).</p>
+          <div class="scene scene--services" id="que-hacemos" data-step data-from="0.425" data-to="0.605">
+            <p class="eyebrow eyebrow--light">Qué hacemos</p>
+            <h2 class="scene__title">Todo lo que se puede automatizar, lo automatizamos</h2>
+            <ul class="svc-list">
+              <li class="svc" data-step data-from="0.43" data-to="0.4607">
+                <h3>Chatbots y asistentes con IA</h3>
+                <p>Atienden a tus clientes al instante en tu web, WhatsApp o Instagram, reservan citas y gestionan pedidos.</p>
+              </li>
+              <li class="svc" data-step data-from="0.4607" data-to="0.4873">
+                <h3>Automatización de procesos</h3>
+                <p>Flujos que conectan tus aplicaciones y hacen solos el trabajo repetitivo: altas, avisos, aprobaciones…</p>
+              </li>
+              <li class="svc" data-step data-from="0.4873" data-to="0.514">
+                <h3>Lectura inteligente de documentos</h3>
+                <p>La IA lee facturas, albaranes y contratos, extrae los datos y los registra donde corresponde.</p>
+              </li>
+              <li class="svc" data-step data-from="0.514" data-to="0.5407">
+                <h3>Agentes de IA para ventas</h3>
+                <p>Cualifican cada lead, hacen el seguimiento y mantienen tu CRM al día sin esfuerzo.</p>
+              </li>
+              <li class="svc" data-step data-from="0.5407" data-to="0.5673">
+                <h3>Integraciones a medida</h3>
+                <p>Unimos CRM, ERP, tienda online, email y Excel para que la información fluya sola.</p>
+              </li>
+              <li class="svc" data-step data-from="0.5673" data-to="0.605">
+                <h3>Informes automáticos</h3>
+                <p>Cuadros de mando que se actualizan solos e informes que llegan a tu bandeja cada semana.</p>
+              </li>
+            </ul>
+            <a class="link-arrow scene__link" href="servicios.html">
+              Ver todos los servicios en detalle
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
           </div>
-          <a class="btn btn--solid stat__cta" href="#servicios">
-            Recupera ese tiempo
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ SERVICIOS ============ -->
-    <section class="section" id="servicios" aria-labelledby="servicios-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="eyebrow">Servicios</p>
-          <h2 id="servicios-title">Todo lo que se puede automatizar, <span class="text-grad-ink">lo automatizamos</span></h2>
-          <p class="section__lead">
-            Desde un chatbot que atiende a tus clientes hasta la automatización completa de un departamento.
-            Tú nos cuentas el problema; nosotros diseñamos, construimos y mantenemos la solución.
-          </p>
-        </header>
-
-        <div class="bento">
-          <article class="card card--feature" data-reveal>
-            <div class="card__body">
-              <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg></span>
-              <h3>Chatbots y asistentes con IA</h3>
-              <p>
-                Atienden a tus clientes al instante en tu web, WhatsApp, Instagram o por teléfono: resuelven dudas,
-                toman pedidos, reservan citas y pasan a tu equipo los casos que necesitan a una persona.
-              </p>
-              <ul class="chips">
-                <li>Web</li><li>WhatsApp</li><li>Instagram</li><li>Email</li><li>Voz</li>
-              </ul>
-              <a class="link-arrow" href="#demo">Pruébalo ahora <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <div class="scene scene--chat" id="chatbots" data-step data-from="0.615" data-to="0.712">
+            <div class="scene__text">
+              <p class="eyebrow eyebrow--light">Chatbots con IA</p>
+              <h2 class="scene__big">Un empleado que atiende a tus clientes <span class="text-grad">las 24 horas</span>.</h2>
+              <p class="scene__small">En tu web, WhatsApp o Instagram: responde dudas, reserva citas y gestiona pedidos. Si hace falta una persona, se lo pasa a tu equipo.</p>
             </div>
-            <div class="mini-chat" aria-hidden="true">
-              <p class="mini-chat__msg mini-chat__msg--user">Hola, ¿tenéis cita para mañana?</p>
-              <p class="mini-chat__msg">¡Sí! Tengo hueco a las 10:30 o a las 17:00. ¿Cuál te va mejor?</p>
-              <p class="mini-chat__msg mini-chat__msg--user">A las 17:00, perfecto</p>
-              <p class="mini-chat__msg">Reservado ✓ Te envío la confirmación por WhatsApp.</p>
+            <div class="phone story__phone">
+              <div class="phone__screen">
+                <div class="chat__head">
+                  <span class="chat__avatar" aria-hidden="true">
+                    <svg viewBox="0 0 194 232" fill="url(#pga-grad)" focusable="false"><use href="#chevron"/></svg>
+                  </span>
+                  <span class="chat__who">
+                    <strong>Asistente · Clínica</strong>
+                    <span class="chat__status">En línea</span>
+                  </span>
+                </div>
+                <div class="chat__log" role="group" aria-label="Ejemplo de conversación con un chatbot">
+                  <p class="msg msg--user" data-at="0.624">Hola, ¿tenéis cita para mañana?</p>
+                  <p class="msg msg--bot msg--typing" data-at="0.631" data-until="0.638" aria-hidden="true"><i></i><i></i><i></i></p>
+                  <p class="msg msg--bot" data-at="0.638">¡Claro! Tengo hueco a las 10:30 o a las 17:00. ¿Cuál prefieres?</p>
+                  <p class="msg msg--user" data-at="0.648">A las 17:00, perfecto.</p>
+                  <p class="msg msg--bot msg--typing" data-at="0.654" data-until="0.661" aria-hidden="true"><i></i><i></i><i></i></p>
+                  <p class="msg msg--bot" data-at="0.661">Reservado ✓ Te envío la confirmación por WhatsApp y te recordaré la cita.</p>
+                  <p class="msg msg--bot" data-at="0.672">¿Te ayudo con algo más?</p>
+                </div>
+                <div class="chat__input" aria-hidden="true">
+                  <span>Escribe un mensaje…</span>
+                  <span class="chat__send"><svg class="icon"><use href="#i-send"/></svg></span>
+                </div>
+              </div>
             </div>
-          </article>
+          </div>
 
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-workflow"/></svg></span>
-            <h3>Automatización de procesos</h3>
-            <p>Flujos que conectan tus aplicaciones y hacen el trabajo repetitivo por ti: altas de clientes, avisos, aprobaciones, seguimientos…</p>
-            <ol class="mini-steps" aria-hidden="true">
-              <li><svg class="icon"><use href="#i-mail"/></svg>Llega un pedido por email</li>
-              <li><svg class="icon"><use href="#i-database"/></svg>Se registra en el ERP</li>
-              <li><svg class="icon"><use href="#i-send"/></svg>El cliente recibe la confirmación<svg class="icon mini-steps__ok"><use href="#i-check"/></svg></li>
+          <div class="scene scene--method" id="metodo" data-step data-from="0.725" data-to="0.868">
+            <p class="eyebrow eyebrow--light">Cómo trabajamos</p>
+            <h2 class="scene__big">De la idea a la automatización, en 4 pasos.</h2>
+            <ol class="mile-list">
+              <li><span>01</span><strong>Diagnóstico gratuito.</strong> Analizamos tus procesos y detectamos qué automatizar primero.</li>
+              <li><span>02</span><strong>Propuesta a medida.</strong> Un plan claro: qué haremos, en cuánto tiempo y con qué retorno.</li>
+              <li><span>03</span><strong>Desarrollo e integración.</strong> Lo construimos, lo conectamos con tus herramientas y lo probamos.</li>
+              <li><span>04</span><strong>Puesta en marcha.</strong> Formamos a tu equipo, medimos los resultados y seguimos mejorando.</li>
             </ol>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-scan-text"/></svg></span>
-            <h3>Lectura inteligente de documentos</h3>
-            <p>Facturas, albaranes, pedidos, contratos o CV: la IA los lee, extrae los datos clave, los valida y los registra donde corresponde.</p>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-trending-up"/></svg></span>
-            <h3>Agentes de IA para ventas</h3>
-            <p>Cualifican cada lead, responden al momento, hacen seguimiento personalizado y mantienen tu CRM al día sin esfuerzo.</p>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-plug-zap"/></svg></span>
-            <h3>Integraciones a medida</h3>
-            <p>Unimos tu CRM, ERP, tienda online, email y hojas de cálculo para que la información fluya sola y sin duplicados.</p>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-layout-dashboard"/></svg></span>
-            <h3>Informes y cuadros de mando</h3>
-            <p>Paneles que se actualizan solos e informes que llegan a tu bandeja con lo importante resumido por la IA.</p>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-book-open-text"/></svg></span>
-            <h3>Asistente con el conocimiento de tu empresa</h3>
-            <p>Un asistente privado que responde a tu equipo usando vuestros manuales, procedimientos y documentos. Se acabó buscar en carpetas.</p>
-          </article>
-
-          <article class="card card--dark" data-reveal>
-            <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-lightbulb"/></svg></span>
-            <h3>Consultoría y transformación digital</h3>
-            <p>Analizamos tus procesos, priorizamos por retorno y diseñamos la hoja de ruta. Y formamos a tu equipo para sacar todo el partido a la IA.</p>
-            <a class="link-arrow" href="#contacto">Hablemos <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ DEMO CHATBOT ============ -->
-    <section class="section section--dark demo" id="demo" aria-labelledby="demo-title">
-      <div class="demo__glow" aria-hidden="true"></div>
-      <div class="container demo__inner">
-        <div class="demo__copy" data-reveal>
-          <p class="eyebrow eyebrow--light">Chatbots con IA</p>
-          <h2 id="demo-title">Un empleado que atiende a tus clientes <span class="text-grad">las 24 horas</span></h2>
-          <p class="section__lead">
-            Tu chatbot responde al instante con la información de tu negocio, reserva citas, gestiona pedidos y
-            cualifica clientes potenciales. Cuando hace falta una persona, pasa la conversación a tu equipo con todo el contexto.
-          </p>
-          <ul class="checklist">
-            <li>En tu web, WhatsApp, Instagram, email o por teléfono</li>
-            <li>Entrenado con tus productos, precios y procedimientos</li>
-            <li>Conectado a tu agenda, tu CRM o tu tienda online</li>
-            <li>Habla con tus clientes en su idioma</li>
-          </ul>
-          <a class="btn btn--primary btn--lg" href="#contacto">
-            Quiero un chatbot para mi empresa
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </div>
-
-        <div class="demo__device" data-reveal>
-          <div class="scenarios" role="group" aria-label="Elige un ejemplo de chatbot" data-scenarios>
-            <button type="button" class="scenario is-active" aria-pressed="true" data-scenario="clinica">
-              <svg class="icon" aria-hidden="true"><use href="#i-stethoscope"/></svg>Clínica
-            </button>
-            <button type="button" class="scenario" aria-pressed="false" data-scenario="tienda">
-              <svg class="icon" aria-hidden="true"><use href="#i-shopping-bag"/></svg>Tienda online
-            </button>
-            <button type="button" class="scenario" aria-pressed="false" data-scenario="inmobiliaria">
-              <svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Inmobiliaria
-            </button>
           </div>
 
-          <div class="phone">
-            <div class="phone__screen">
-              <div class="chat__head">
-                <span class="chat__avatar" aria-hidden="true">
-                  <svg viewBox="0 0 194 232" fill="url(#pga-grad)" focusable="false"><use href="#chevron"/></svg>
-                </span>
-                <span class="chat__who">
-                  <strong data-chat-name>Asistente · Clínica</strong>
-                  <span class="chat__status">En línea</span>
-                </span>
-              </div>
-              <div class="chat__log" role="log" aria-live="polite" aria-label="Conversación de ejemplo" data-chat-log>
-                <p class="msg msg--bot">¡Hola! Soy el asistente virtual de la clínica. ¿En qué te puedo ayudar?</p>
-              </div>
-              <div class="chat__replies" data-chat-replies></div>
-              <div class="chat__input" aria-hidden="true">
-                <span>Elige una respuesta…</span>
-                <span class="chat__send"><svg class="icon"><use href="#i-send"/></svg></span>
-              </div>
-            </div>
-          </div>
-          <p class="demo__note">Conversación simulada. Tu chatbot se entrena con la información real de tu negocio.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CASOS DE USO ============ -->
-    <section class="section" id="casos" aria-labelledby="casos-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="eyebrow">Casos de uso</p>
-          <h2 id="casos-title">¿Qué podemos automatizar en tu empresa?</h2>
-          <p class="section__lead">Elige un área y descubre ejemplos concretos. Si se hace a mano y se repite, probablemente podamos automatizarlo.</p>
-        </header>
-
-        <div class="tabs" data-tabs data-reveal>
-          <div class="tabs__list" role="tablist" aria-label="Áreas de la empresa">
-            <button class="tab" role="tab" id="tab-ventas" aria-controls="panel-ventas" aria-selected="true" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-trending-up"/></svg>Ventas
-            </button>
-            <button class="tab" role="tab" id="tab-clientes" aria-controls="panel-clientes" aria-selected="false" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-headphones"/></svg>Atención al cliente
-            </button>
-            <button class="tab" role="tab" id="tab-admin" aria-controls="panel-admin" aria-selected="false" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-receipt"/></svg>Administración y finanzas
-            </button>
-            <button class="tab" role="tab" id="tab-rrhh" aria-controls="panel-rrhh" aria-selected="false" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-user-check"/></svg>Recursos humanos
-            </button>
-            <button class="tab" role="tab" id="tab-operaciones" aria-controls="panel-operaciones" aria-selected="false" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>Operaciones
-            </button>
-            <button class="tab" role="tab" id="tab-marketing" aria-controls="panel-marketing" aria-selected="false" type="button">
-              <svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg>Marketing
-            </button>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-ventas" aria-labelledby="tab-ventas" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Cualificación automática de leads</h3><p>La IA puntúa cada contacto según su potencial y lo asigna al comercial adecuado.</p></li>
-              <li><h3>Seguimiento sin olvidos</h3><p>Emails y mensajes de seguimiento personalizados, enviados en el momento justo.</p></li>
-              <li><h3>Presupuestos en minutos</h3><p>Propuestas generadas a partir de tus plantillas y de los datos del CRM.</p></li>
-              <li><h3>CRM siempre actualizado</h3><p>Llamadas, reuniones y emails se registran solos en la ficha de cada cliente.</p></li>
+          <div class="scene scene--why" data-step data-from="0.875" data-to="0.948">
+            <p class="eyebrow eyebrow--light">Por qué PGA</p>
+            <h2 class="scene__big">Tu empresa, <span class="text-grad">en piloto automático</span>.</h2>
+            <p class="scene__small">Tecnología de vanguardia, explicada en tu idioma.</p>
+            <ul class="feat-list">
+              <li>Sin tecnicismos</li>
+              <li>A medida, no plantillas</li>
+              <li>Resultados medibles</li>
+              <li>RGPD y Reglamento europeo de IA</li>
+              <li>Empieza pequeño, escala rápido</li>
+              <li>Tu equipo, al mando</li>
             </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>Llega un lead desde la web</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg>La IA lo cualifica y le responde</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>Reunión agendada con tu comercial</li>
-              </ol>
-            </div>
           </div>
 
-          <div class="tabs__panel" role="tabpanel" id="panel-clientes" aria-labelledby="tab-clientes" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Chatbot 24/7 en web y WhatsApp</h3><p>Responde dudas, consulta pedidos y resuelve incidencias a cualquier hora.</p></li>
-              <li><h3>Emails clasificados y respondidos</h3><p>La IA lee cada correo, lo etiqueta, prepara la respuesta y avisa si es urgente.</p></li>
-              <li><h3>Citas y reservas automáticas</h3><p>Tus clientes reservan solos y reciben confirmaciones y recordatorios.</p></li>
-              <li><h3>Encuestas y reseñas</h3><p>Después de cada servicio se pide la valoración y se detectan clientes insatisfechos.</p></li>
-            </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>Consulta por WhatsApp a las 23:40</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg>La IA responde con tu información</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg>Caso resuelto o derivado con resumen</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Facturas registradas solas</h3><p>Lectura automática de facturas de proveedores y registro en tu programa contable.</p></li>
-              <li><h3>Conciliación bancaria asistida</h3><p>Los movimientos del banco se cruzan con facturas y cobros pendientes.</p></li>
-              <li><h3>Recordatorios de cobro</h3><p>Avisos amables y escalonados a los clientes con facturas vencidas.</p></li>
-              <li><h3>Cierres e informes financieros</h3><p>Informes periódicos de tesorería, ventas y márgenes, listos sin hojas de cálculo.</p></li>
-            </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Llega una factura por email</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-scan-text"/></svg>La IA extrae y valida los datos</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-database"/></svg>Queda registrada en tu ERP</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-rrhh" aria-labelledby="tab-rrhh" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Criba de candidaturas</h3><p>La IA analiza los CV según los requisitos del puesto y propone una preselección.</p></li>
-              <li><h3>Incorporaciones sin papeleo</h3><p>Documentación, accesos y formación inicial preparados automáticamente.</p></li>
-              <li><h3>Vacaciones y ausencias</h3><p>Solicitudes, aprobaciones y calendario del equipo, sin correos de ida y vuelta.</p></li>
-              <li><h3>Asistente interno de RR. HH.</h3><p>Responde dudas sobre políticas, nóminas o convenio al momento.</p></li>
-            </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-file-text"/></svg>Llega una candidatura</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-scan-text"/></svg>La IA la compara con el puesto</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>Entrevista propuesta al candidato</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-operaciones" aria-labelledby="tab-operaciones" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Pedidos de principio a fin</h3><p>Del pedido al albarán y la factura, sin volver a teclear nada.</p></li>
-              <li><h3>Stock bajo control</h3><p>Alertas de reposición y previsión de demanda a partir de tus ventas.</p></li>
-              <li><h3>Avisos de envío</h3><p>Tus clientes reciben el estado de su pedido en cada paso, sin que tengáis que llamar.</p></li>
-              <li><h3>Planificación de tareas</h3><p>Asignación de trabajos y rutas según disponibilidad y prioridad.</p></li>
-            </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-shopping-bag"/></svg>Entra un pedido</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-database"/></svg>Se comprueba el stock y se genera el albarán</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>El cliente recibe el aviso de envío</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-marketing" aria-labelledby="tab-marketing" tabindex="0">
-            <ul class="usecases">
-              <li><h3>Contenidos con tu estilo</h3><p>Publicaciones, newsletters y descripciones de producto redactadas con IA y revisadas por tu equipo.</p></li>
-              <li><h3>Redes sociales en piloto automático</h3><p>Calendario editorial y publicación programada en tus canales.</p></li>
-              <li><h3>Campañas personalizadas</h3><p>Segmentación de clientes y mensajes adaptados a cada perfil.</p></li>
-              <li><h3>Resultados sin esfuerzo</h3><p>Métricas de todas tus campañas reunidas en un informe automático.</p></li>
-            </ul>
-            <div class="miniflow">
-              <p class="miniflow__title">Ejemplo de flujo</p>
-              <ol class="miniflow__steps">
-                <li><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg>Publicas un producto nuevo</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg>La IA redacta posts y emails</li>
-                <li><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg>Campaña programada en tus canales</li>
-              </ol>
+          <div class="scene scene--final" data-step data-from="0.955" data-to="1">
+            <h2 class="scene__big">Descubre en 30 minutos todo lo que <span class="text-grad">puedes automatizar</span>.</h2>
+            <p class="scene__small">Diagnóstico gratuito y sin compromiso: te decimos qué automatizar primero y cuánto puedes ahorrar.</p>
+            <div class="scene__ctas">
+              <a class="btn btn--primary btn--lg" href="#contacto">
+                Solicitar diagnóstico gratuito
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <a class="btn btn--ghost btn--lg" href="servicios.html">Ver servicios en detalle</a>
             </div>
           </div>
         </div>
 
-        <div class="sectors" data-reveal>
-          <p class="sectors__title">Soluciones para cualquier sector</p>
-          <ul class="sectors__list">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-shopping-bag"/></svg>Comercio y e-commerce</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-stethoscope"/></svg>Salud y clínicas</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Inmobiliarias</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg>Asesorías y despachos</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-factory"/></svg>Industria</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>Logística y transporte</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg>Hostelería y turismo</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-graduation-cap"/></svg>Educación y formación</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>Servicios profesionales</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CALCULADORA ============ -->
-    <section class="section section--soft" id="calculadora" aria-labelledby="calc-title">
-      <div class="container calc">
-        <header class="calc__head" data-reveal>
-          <p class="eyebrow">Calculadora de ahorro</p>
-          <h2 id="calc-title">¿Cuánto te cuesta <span class="text-grad-ink">no automatizar</span>?</h2>
-          <p class="section__lead">Mueve los controles con los datos de tu empresa y descubre cuánto tiempo y dinero se va en tareas repetitivas.</p>
-        </header>
-
-        <div class="calc__form" role="group" aria-label="Datos para calcular el ahorro" data-calc data-reveal>
-          <div class="range">
-            <div class="range__top">
-              <label for="c-people">Personas que hacen tareas repetitivas</label>
-              <output class="range__out" for="c-people" data-out="people">5</output>
-            </div>
-            <input type="range" id="c-people" name="people" min="1" max="50" step="1" value="5">
-          </div>
-          <div class="range">
-            <div class="range__top">
-              <label for="c-hours">Horas a la semana que dedica cada una</label>
-              <output class="range__out" for="c-hours" data-out="hours">10 h</output>
-            </div>
-            <input type="range" id="c-hours" name="hours" min="1" max="40" step="1" value="10">
-          </div>
-          <div class="range">
-            <div class="range__top">
-              <label for="c-cost">Coste por hora para la empresa</label>
-              <output class="range__out" for="c-cost" data-out="cost">22 €</output>
-            </div>
-            <input type="range" id="c-cost" name="cost" min="10" max="80" step="1" value="22">
-          </div>
-          <fieldset class="segmented">
-            <legend>¿Qué parte se puede automatizar?</legend>
-            <div class="segmented__opts">
-              <label><input type="radio" name="pct" value="0.3"><span>Prudente<small>30&#8239;%</small></span></label>
-              <label><input type="radio" name="pct" value="0.5" checked><span>Realista<small>50&#8239;%</small></span></label>
-              <label><input type="radio" name="pct" value="0.7"><span>Ambicioso<small>70&#8239;%</small></span></label>
-            </div>
-          </fieldset>
-        </div>
-
-        <div class="calc__result" data-reveal>
-          <p class="calc__label">Podrías recuperar cada año</p>
-          <p class="calc__big"><span data-res="hours">1.125</span> <span class="calc__unit">horas</span></p>
-          <dl class="calc__grid">
-            <div>
-              <dt>Ahorro estimado</dt>
-              <dd data-res="money">24.750&nbsp;€</dd>
-            </div>
-            <div>
-              <dt>Equivale a</dt>
-              <dd><span data-res="fte">0,6</span> <span class="calc__small">personas a jornada completa</span></dd>
-            </div>
-          </dl>
-          <div class="calc__bar" aria-hidden="true">
-            <span class="calc__bar-fill" data-res-bar></span>
-          </div>
-          <p class="calc__bar-legend" aria-hidden="true">
-            <span><i class="dot dot--auto"></i>Automatizable</span>
-            <span><i class="dot dot--rest"></i>Resto de tareas repetitivas</span>
-          </p>
-          <p class="visually-hidden" aria-live="polite" data-calc-live></p>
-          <a class="btn btn--primary btn--block btn--lg" href="#contacto">
-            Quiero mi diagnóstico con cifras reales
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-          <p class="calc__note">Estimación orientativa con 45 semanas laborables al año y 1.760 horas por jornada completa. En el diagnóstico gratuito calculamos la cifra real de tu empresa.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MÉTODO ============ -->
-    <section class="section" id="metodo" aria-labelledby="metodo-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="eyebrow">Cómo trabajamos</p>
-          <h2 id="metodo-title">De la idea a la automatización, en 4 pasos</h2>
-          <p class="section__lead">Un proceso claro y sin sorpresas, pensado para que veas resultados cuanto antes.</p>
-        </header>
-        <ol class="steps">
-          <li class="step" data-reveal>
-            <span class="step__num">01</span>
-            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-file-search"/></svg></span>
-            <h3>Diagnóstico gratuito</h3>
-            <p>Nos reunimos contigo, entendemos cómo trabajáis y detectamos dónde se pierde más tiempo y dinero.</p>
-          </li>
-          <li class="step" data-reveal>
-            <span class="step__num">02</span>
-            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg></span>
-            <h3>Propuesta a medida</h3>
-            <p>Priorizamos por impacto y te presentamos un plan claro: qué haremos, en cuánto tiempo y con qué retorno.</p>
-          </li>
-          <li class="step" data-reveal>
-            <span class="step__num">03</span>
-            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span>
-            <h3>Desarrollo e integración</h3>
-            <p>Construimos la solución, la conectamos con tus herramientas y la probamos con casos reales antes de activarla.</p>
-          </li>
-          <li class="step" data-reveal>
-            <span class="step__num">04</span>
-            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-rocket"/></svg></span>
-            <h3>Puesta en marcha y mejora</h3>
-            <p>Formamos a tu equipo, medimos los resultados y seguimos optimizando para que el ahorro crezca.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ POR QUÉ PGA ============ -->
-    <section class="section section--dark why" aria-labelledby="why-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="eyebrow eyebrow--light">Por qué PGA</p>
-          <h2 id="why-title">Tecnología de vanguardia, <span class="text-grad">explicada en tu idioma</span></h2>
-        </header>
-        <ul class="why__grid">
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-messages-square"/></svg></span>
-            <h3>Sin tecnicismos</h3>
-            <p>Te explicamos qué vamos a hacer, cuánto cuesta y qué vas a ganar. Hablamos de negocio, no de jerga.</p>
-          </li>
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-puzzle"/></svg></span>
-            <h3>A medida, no plantillas</h3>
-            <p>Cada empresa es distinta. Diseñamos la solución alrededor de tus procesos, no al revés.</p>
-          </li>
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg></span>
-            <h3>Resultados medibles</h3>
-            <p>Definimos indicadores desde el inicio: horas ahorradas, tiempo de respuesta, errores evitados.</p>
-          </li>
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
-            <h3>Seguridad y cumplimiento</h3>
-            <p>Soluciones diseñadas conforme al RGPD y al Reglamento Europeo de Inteligencia Artificial.</p>
-          </li>
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-rocket"/></svg></span>
-            <h3>Empieza pequeño, escala rápido</h3>
-            <p>Arrancamos por la automatización que más retorno da y crecemos a partir de ahí.</p>
-          </li>
-          <li class="why__item" data-reveal>
-            <span class="why__icon"><svg class="icon" aria-hidden="true"><use href="#i-graduation-cap"/></svg></span>
-            <h3>Tu equipo, al mando</h3>
-            <p>Documentamos cada automatización y formamos a tu gente para que la entienda y la controle.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container faq">
-        <div class="faq__intro" data-reveal>
-          <p class="eyebrow">Preguntas frecuentes</p>
-          <h2 id="faq-title">Resolvemos tus dudas</h2>
-          <p class="section__lead">¿No encuentras lo que buscas? Cuéntanos tu caso y te respondemos personalmente.</p>
-          <a class="btn btn--solid" href="#contacto">
-            Hacer una consulta
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </div>
-        <div class="faq__list" data-reveal>
-          <details class="faq__item" name="faq">
-            <summary>¿Qué tipo de procesos se pueden automatizar?</summary>
-            <div class="faq__body"><p>Casi cualquier tarea repetitiva que siga unas reglas o que consista en leer, clasificar, redactar o mover información: atención al cliente, gestión de pedidos, facturas, informes, seguimiento comercial, selección de personal… En el diagnóstico gratuito identificamos las que más retorno te darán.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Tengo que cambiar los programas que ya uso?</summary>
-            <div class="faq__body"><p>No. Trabajamos con tus herramientas actuales (ERP, CRM, email, Excel, WhatsApp, tienda online…) y las conectamos entre sí. Solo te recomendaremos un cambio si de verdad te compensa.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Cuánto se tarda en tener una automatización funcionando?</summary>
-            <div class="faq__body"><p>Depende de la complejidad. Las automatizaciones sencillas pueden estar listas en pocos días, y los proyectos más completos se entregan por fases para que notes el ahorro desde el principio.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Cuánto cuesta?</summary>
-            <div class="faq__body"><p>Cada proyecto se presupuesta a medida según su alcance. Antes de empezar te entregamos una propuesta clara con el precio y una estimación del retorno, para que sepas exactamente qué inviertes y qué ganas.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Están seguros mis datos?</summary>
-            <div class="faq__body"><p>Sí. Diseñamos cada solución conforme al RGPD: control de accesos, cifrado y proveedores con garantías. Además, configuramos los servicios de IA para que tus datos no se utilicen para entrenar modelos de terceros.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿La IA va a sustituir a mi equipo?</summary>
-            <div class="faq__body"><p>La idea es justo la contraria: quitarle a tu equipo el trabajo repetitivo para que dedique su tiempo a los clientes, a vender y a tomar decisiones. La IA hace el trabajo pesado; las personas, el que aporta valor.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Qué pasa si algo falla o mi proceso cambia?</summary>
-            <div class="faq__body"><p>Ofrecemos soporte y mantenimiento: supervisamos las automatizaciones, resolvemos incidencias y las adaptamos cuando tu negocio cambia.</p></div>
-          </details>
-          <details class="faq__item" name="faq">
-            <summary>¿Trabajáis con empresas pequeñas?</summary>
-            <div class="faq__body"><p>Sí. Trabajamos con autónomos, pymes y grandes empresas. De hecho, en las empresas pequeñas es donde más se nota cada hora que se ahorra.</p></div>
-          </details>
-        </div>
+        <div class="story__bar" aria-hidden="true"><span></span></div>
+        <a class="story__skip" href="#contacto">Saltar al contacto</a>
       </div>
     </section>
 
@@ -1081,20 +433,20 @@
       <nav class="footer__col" aria-label="Servicios">
         <h2 class="footer__title">Servicios</h2>
         <ul>
-          <li><a href="#demo">Chatbots con IA</a></li>
-          <li><a href="#servicios">Automatización de procesos</a></li>
-          <li><a href="#servicios">Lectura de documentos</a></li>
-          <li><a href="#servicios">Integraciones</a></li>
-          <li><a href="#servicios">Consultoría</a></li>
+          <li><a href="#chatbots">Chatbots con IA</a></li>
+          <li><a href="servicios.html#servicios">Automatización de procesos</a></li>
+          <li><a href="servicios.html#servicios">Lectura de documentos</a></li>
+          <li><a href="servicios.html#servicios">Integraciones</a></li>
+          <li><a href="servicios.html#servicios">Consultoría</a></li>
         </ul>
       </nav>
       <nav class="footer__col" aria-label="Empresa">
         <h2 class="footer__title">Empresa</h2>
         <ul>
-          <li><a href="#casos">Casos de uso</a></li>
-          <li><a href="#calculadora">Calculadora de ahorro</a></li>
+          <li><a href="servicios.html#casos">Casos de uso</a></li>
+          <li><a href="servicios.html#calculadora">Calculadora de ahorro</a></li>
           <li><a href="#metodo">Cómo trabajamos</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="servicios.html#faq">Preguntas frecuentes</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
