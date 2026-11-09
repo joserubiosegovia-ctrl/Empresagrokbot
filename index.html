@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PGA Transformaciones · Automatización con IA y chatbots para empresas</title>
   <meta name="description" content="Automatizamos los procesos de tu empresa con inteligencia artificial: chatbots 24/7, automatización de tareas, lectura de documentos e integraciones. Solicita tu diagnóstico gratuito.">
+  <link rel="canonical" href="https://www.pgatransformaciones.com/">
   <meta name="theme-color" content="#041E3C">
 
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.pgatransformaciones.com/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="PGA Transformaciones">
   <meta property="og:title" content="PGA Transformaciones · Si se repite, se automatiza">
@@ -122,6 +124,8 @@
     <symbol id="i-euro" viewBox="0 0 24 24"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol>
     <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
     <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol>
+    <symbol id="i-file-spreadsheet" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M8 13h2"/><path d="M14 13h2"/><path d="M8 17h2"/><path d="M14 17h2"/></symbol>
+    <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="7"/><path d="M12 6v4"/></symbol>
     <!-- sprite:end -->
   </svg>
 
@@ -301,6 +305,76 @@
             <li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Make</li><li>n8n</li><li>Zapier</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ ASÍ FUNCIONA (animación 3D que avanza con el scroll: js/story.js) ============ -->
+    <section class="story" id="como-funciona" data-story aria-labelledby="story-title">
+      <div class="story__stage">
+        <canvas class="story__canvas" aria-hidden="true"></canvas>
+        <div class="story__shade" aria-hidden="true"></div>
+        <div class="story__nodes" aria-hidden="true">
+          <p class="story__node" data-node><strong>CRM</strong><span data-count>0 leads</span></p>
+          <p class="story__node" data-node><strong>ERP</strong><span data-count>0 facturas</span></p>
+          <p class="story__node" data-node><strong>Clientes</strong><span data-count>0 respuestas</span></p>
+          <p class="story__node" data-node><strong>Informes</strong><span data-count>0 informes</span></p>
+        </div>
+        <div class="container story__captions">
+          <div class="story__caption" data-step data-from="0" data-to="0.2" aria-hidden="true">
+            <p class="eyebrow eyebrow--light">Así funciona</p>
+            <p class="story__big">Cada día, tu empresa recibe un aluvión de tareas.</p>
+            <p class="story__small">Emails, pedidos, facturas, mensajes de WhatsApp, hojas de cálculo… y alguien tiene que ocuparse de todo.</p>
+          </div>
+          <div class="story__caption" data-step data-from="0.25" data-to="0.49" aria-hidden="true">
+            <p class="story__big">Nuestra IA las lee, las entiende y <span class="text-grad">las ordena</span>.</p>
+            <p class="story__small">Clasifica cada tarea, extrae los datos importantes y decide qué hay que hacer con ella.</p>
+          </div>
+          <div class="story__caption" data-step data-from="0.54" data-to="0.78" aria-hidden="true">
+            <p class="story__big">Y las lleva solas a donde tienen que ir.</p>
+            <p class="story__small">Al CRM, al ERP, a tus clientes y a tus informes. Sin copiar y pegar.</p>
+          </div>
+          <div class="story__caption story__caption--last" data-step data-from="0.83" data-to="1" aria-hidden="true">
+            <p class="story__big">Tu empresa, <span class="text-grad">en piloto automático</span>.</p>
+            <p class="story__small">Mientras tanto, tu equipo se dedica a lo que de verdad importa.</p>
+          </div>
+          <a class="btn btn--primary btn--lg story__cta" href="#contacto">
+            Quiero automatizar mi empresa
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </div>
+        <div class="story__bar" aria-hidden="true"><span></span></div>
+        <p class="story__hint" aria-hidden="true"><svg class="icon"><use href="#i-mouse"/></svg>Sigue bajando</p>
+      </div>
+
+      <div class="container story__static">
+        <p class="eyebrow eyebrow--light">Así funciona</p>
+        <h2 id="story-title">Del caos al <span class="text-grad">piloto automático</span></h2>
+        <ol class="story__list">
+          <li>
+            <span class="story__num">01</span>
+            <h3>Un aluvión de tareas</h3>
+            <p>Emails, pedidos, facturas, mensajes de WhatsApp y hojas de cálculo llegan cada día a tu empresa.</p>
+          </li>
+          <li>
+            <span class="story__num">02</span>
+            <h3>La IA las ordena</h3>
+            <p>Lee cada tarea, extrae los datos importantes y decide qué hay que hacer con ella.</p>
+          </li>
+          <li>
+            <span class="story__num">03</span>
+            <h3>Cada una a su sitio</h3>
+            <p>Al CRM, al ERP, a tus clientes y a tus informes, sin copiar y pegar.</p>
+          </li>
+          <li>
+            <span class="story__num">04</span>
+            <h3>Piloto automático</h3>
+            <p>Mientras tanto, tu equipo se dedica a lo que de verdad importa.</p>
+          </li>
+        </ol>
+        <a class="btn btn--primary btn--lg story__static-cta" href="#contacto">
+          Quiero automatizar mi empresa
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
       </div>
     </section>
 
@@ -1047,5 +1121,6 @@
   </a>
 
   <script src="js/main.js" defer></script>
+  <script type="module" src="js/story.js"></script>
 </body>
 </html>

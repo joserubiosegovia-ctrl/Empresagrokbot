@@ -11,6 +11,7 @@ Es una web estática (HTML, CSS y JavaScript sin dependencias ni paso de compila
 | Sección | Para qué sirve |
 | --- | --- |
 | **Hero** con flujo animado | Mensaje principal («Si se repite, se automatiza») y llamada al diagnóstico gratuito. |
+| **Así funciona** (animación 3D con scroll) | Al bajar, un aluvión de emails, facturas, WhatsApp y hojas de cálculo atraviesa el chevrón del logotipo y sale ordenado hacia CRM, ERP, clientes e informes. |
 | **Antes / Con PGA** | Interruptor que «transforma» seis problemas típicos en su versión automatizada. |
 | **Servicios** | Chatbots, automatización de procesos, documentos, agentes de ventas, integraciones, informes, asistente interno y consultoría. |
 | **Demo de chatbot** | Conversación interactiva con tres ejemplos: clínica, tienda online e inmobiliaria. |
@@ -22,17 +23,18 @@ Es una web estática (HTML, CSS y JavaScript sin dependencias ni paso de compila
 
 También tiene versión móvil, logotipo en SVG, favicon e iconos, imagen para compartir en redes (`og-image.png`), página 404 y `sitemap.xml`.
 
-## Antes de publicar: lo que tienes que cambiar
+## Antes de publicar: lo que falta
 
-1. **Email de contacto.** Busca `info@pgatransformaciones.com` y sustitúyelo por el vuestro en `index.html`, `aviso-legal.html` y `privacidad.html`. El formulario envía las solicitudes a la dirección que aparezca en la sección de contacto de `index.html`.
-2. **Dominio.** He supuesto `www.pgatransformaciones.com`. Busca `https://www.pgatransformaciones.com/` y sustitúyelo por vuestro dominio real en `index.html` (imagen para redes y datos para buscadores), `robots.txt` y `sitemap.xml`. Cuando tengáis el dominio definitivo, añadid también en el `<head>` de `index.html` la línea `<link rel="canonical" href="https://vuestro-dominio/">`.
-3. **Recepción del formulario** (recomendado). Sin configurar nada, el formulario abre el programa de correo del visitante con el mensaje ya escrito. Para recibir las solicitudes directamente:
+La web ya está preparada para el dominio `www.pgatransformaciones.com` (archivo `CNAME`, etiquetas para buscadores y redes, `robots.txt` y `sitemap.xml`).
+
+1. **Email de contacto.** La web usa `info@pgatransformaciones.com` en `index.html`, `aviso-legal.html` y `privacidad.html`. Crea ese buzón en tu proveedor de correo o sustitúyelo por el que vayáis a usar. El formulario envía las solicitudes a la dirección que aparece en la sección de contacto de `index.html`.
+2. **Recepción del formulario** (recomendado). Sin configurar nada, el formulario abre el programa de correo del visitante con el mensaje ya escrito. Para recibir las solicitudes directamente:
    - Crea un formulario gratuito en [Formspree](https://formspree.io) (u otro servicio similar).
    - Copia la URL que te dan (por ejemplo, `https://formspree.io/f/abcdwxyz`) en `formEndpoint`, al principio de `js/main.js`.
    - Añade ese proveedor en el apartado «Destinatarios» de `privacidad.html`.
-4. **WhatsApp** (opcional). Escribe vuestro número en `whatsapp`, al principio de `js/main.js` (con prefijo y sin espacios, por ejemplo `34600123456`) y aparecerá un botón flotante.
-5. **Datos legales.** Rellena los campos resaltados en amarillo de `aviso-legal.html` y `privacidad.html` (razón social, NIF, domicilio…) y haz que los revise vuestra asesoría.
-6. **Revisa los textos comerciales.** Algunos compromisos son propuestas que debéis confirmar: el diagnóstico gratuito de 30 minutos, las respuestas de la FAQ, la lista de herramientas con las que os integráis y los ejemplos de la demo (precios, horarios, etc.).
+3. **WhatsApp** (opcional). Escribe vuestro número en `whatsapp`, al principio de `js/main.js` (con prefijo y sin espacios, por ejemplo `34600123456`) y aparecerá un botón flotante.
+4. **Datos legales.** Rellena los campos resaltados en amarillo de `aviso-legal.html` y `privacidad.html` (razón social, NIF, domicilio…) y haz que los revise vuestra asesoría.
+5. **Revisa los textos comerciales.** Algunos compromisos son propuestas que debéis confirmar: el diagnóstico gratuito de 30 minutos, las respuestas de la FAQ, la lista de herramientas con las que os integráis y los ejemplos de la demo (precios, horarios, etc.).
 
 ## Verla en tu ordenador
 
@@ -61,6 +63,8 @@ privacidad.html       Plantilla de política de privacidad y cookies
 404.html              Página de error
 css/styles.css        Estilos (colores de marca en las variables del principio)
 js/main.js            Interacciones y configuración (formulario, WhatsApp)
+js/story.js           Animación 3D de «Así funciona» (avanza con el scroll)
+assets/vendor/three/  Librería three.js para la animación 3D (licencia MIT)
 assets/img/           Logotipos SVG, favicon, iconos e imagen para redes
 assets/fonts/         Tipografías Montserrat e Inter (licencia OFL)
 assets/brand/         Logotipo original en JPG
@@ -71,6 +75,7 @@ assets/brand/         Logotipo original en JPG
 - **Colores de marca**, sacados del logotipo: azul marino `#041E3C`, cian `#05DBFF` y azul `#0046E2`.
 - **Logotipo vectorial** recreado a partir del JPG original con la tipografía Montserrat. Si vuestro diseñador tiene el logotipo original en SVG, AI o EPS, podéis sustituir `assets/img/logo*.svg` y los símbolos `logo-lockup` y `logo-full` al principio de `index.html`.
 - **Sin cookies ni servicios de terceros**: las tipografías están alojadas en la propia web, así que no hace falta un aviso de cookies. Si añadís analítica (Google Analytics, etc.), tendréis que añadir un aviso de cookies y actualizar la política de privacidad.
+- **Animación 3D**: hecha con [three.js](https://threejs.org) y alojada en la propia web. Solo se descarga al llegar a esa parte de la página y deja de dibujarse cuando no está en pantalla. En navegadores sin WebGL 2, sin JavaScript o con «reducir movimiento» activado se muestra una versión estática con los mismos textos.
 - **Accesibilidad**: se puede usar con teclado, respeta la opción «reducir movimiento» del sistema y sigue funcionando sin JavaScript.
 - Iconos de [Lucide](https://lucide.dev) (licencia ISC).
 
