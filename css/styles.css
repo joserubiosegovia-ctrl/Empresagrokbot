@@ -2402,6 +2402,10 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
 .story--3d .story__phone { width: 100%; }
 .story--3d .story__phone .phone__screen { height: min(540px, calc(100svh - var(--header-h) - 190px)); }
 .story--3d .scene button { pointer-events: auto; }
+.story__phone .chat__head,
+.story__phone .chat__replies,
+.story__phone .chat__input { flex: none; }
+.story__phone .chat__log { min-height: 0; }
 .story--3d .scene.is-off button { pointer-events: none; }
 
 .story--3d .mile-list {
@@ -2477,7 +2481,7 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
 }
 .story--3d .story__skip {
   position: absolute;
-  right: clamp(14px, 3vw, 40px);
+  left: max(var(--gutter), calc((100% - var(--container)) / 2));
   bottom: 22px;
   display: inline-flex;
   align-items: center;
@@ -2494,8 +2498,8 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
 .story--3d .story__skip:hover { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
 
 @media (max-width: 760px) {
-  .story--3d .scene { bottom: clamp(70px, 10vh, 96px); }
-  .story--3d .scene--hero { top: auto; bottom: clamp(40px, 6vh, 64px); justify-content: flex-end; }
+  .story--3d .scene { bottom: max(88px, 10vh); }
+  .story--3d .scene--hero { top: auto; bottom: 92px; justify-content: flex-end; }
   .story--3d .scene--hero .scene__more { display: none; }
   .story--3d .scene--hero .scene__lead { margin-top: 14px; font-size: 1rem; }
   .story--3d .scene--hero .scene__ctas { margin-top: 20px; }
@@ -2509,12 +2513,12 @@ input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px rgba
     transform: translateX(-50%);
   }
   .story--3d .story__phone-wrap .phone { margin-top: 8px; padding: 8px; border-radius: 34px; }
-  .story--3d .story__phone .phone__screen { height: min(420px, calc(100svh - var(--header-h) - 360px)); border-radius: 27px; }
+  .story--3d .story__phone .phone__screen { height: min(420px, calc(100svh - var(--header-h) - 378px)); border-radius: 27px; }
   .story--3d .story__phone .chat__head { padding-top: 14px; }
   .story--3d .scenarios--sm { flex-wrap: nowrap; }
   .story--3d .scenarios--sm .scenario { padding: 7px 11px; }
   .story--3d .scenarios--sm .icon { display: none; }
-  .story--3d .scene--hero .hero__title { font-size: clamp(2.1rem, 9.8vw, 2.65rem); }
+  .story--3d .scene--hero .hero__title { font-size: clamp(1.9rem, 8.4vw, 2.5rem); }
   .story__node strong { font-size: 0.86rem; }
   .story__node span { font-size: 0.72rem; }
   .story__mile { padding: 8px 11px; }
@@ -2548,5 +2552,9 @@ html.story-snap .site-footer { scroll-snap-align: end; }
   .story--3d .scene--chat .eyebrow { display: none; }
   .story--3d .scene--chat .scene__big { font-size: 1.6rem; }
   .story--3d .story__phone-wrap { bottom: calc(100% + 8px); }
-  .story--3d .story__phone .phone__screen { height: max(200px, calc(100svh - var(--header-h) - 280px)); }
+  .story--3d .story__phone .phone__screen { height: max(200px, calc(100svh - var(--header-h) - 298px)); }
+}
+@media (max-width: 760px) and (max-height: 600px) {
+  .story--3d .scenarios--sm { display: none; }
+  .story--3d .story__phone .phone__screen { height: max(240px, calc(100svh - var(--header-h) - 258px)); }
 }
